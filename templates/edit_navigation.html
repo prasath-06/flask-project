@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Navigation</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="navbar">
+        <a href="/">Add Product</a>
+        <a href="/location">Location</a>
+        <a href="/productmovement">Navigation</a>
+    </div>
+
+    <div class="container">
+        <h1>Edit Navigation</h1>
+        <form method="POST">
+            <label>Product Name:</label>
+            <input type="text" name="product_name" value="{{ movement.product_name }}" readonly>
+
+            <label>From Location:</label>
+            <input type="text" name="from_location" value="{{ movement.from_location }}" readonly>
+
+            <label>To Location:</label>
+            <input type="text" name="to_location" value="{{ movement.to_location }}" required>
+
+            <button type="submit">Update</button>
+        </form>
+
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="/view_navigation" class="centered-button">Back</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,270 @@
+/* General Body Styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Headings Styling */
+h1, h2 {
+    color: #333;
+    text-align: center;
+}
+
+/* Form Styling */
+form {
+    background: #fff;
+    padding: 20px;
+    max-width: 500px;
+    margin: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Button Styling */
+button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+/* List Styling */
+ul {
+    list-style: none;
+    padding: 0;
+    max-width: 500px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+li {
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+}
+
+li:last-child {
+    border-bottom: none;
+}
+
+/* Link Styling */
+a {
+    text-align: center;
+    display: block;
+    margin-top: 20px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Centered Button Styling */
+.centered-button {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    text-align: center;
+    margin: 20px auto;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.centered-button:hover {
+    background-color: #0056b3;
+}
+
+/* Navigation Bar Styling */
+.navbar {
+    
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    max-width: 800px;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar a {
+    color: rgb(243, 249, 246);
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+}
+
+.navbar a {
+    background-color: #199d40;
+}
+.navbar a:hover {
+    background-color: #229143;
+}
+
+/* Container Styling */
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    background: #eceeec;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Table Styling */
+table {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+}
+
+table th, table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Button Styling for Tables */
+button {
+    padding: 10px 20px;
+    background-color: #199d40;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #157a2e;
+}
+/* General Table Styling */
+table {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+}
+
+table th, table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Centered Button Styling */
+.centered-button {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    text-align: center;
+    margin: 20px auto;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.centered-button:hover {
+    background-color: #0056b3;
+}
+
+/* Dropdown Styling */
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Table Styling */
+table {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+}
+
+table th, table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+/* Centered Container Styling */
+.centered-container {
+    text-align: center;
+    margin: 20px auto;
+    width: 80%;
+}

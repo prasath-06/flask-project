@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Locations</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="navbar">
+        <a href="/">Add Product</a>
+        <a href="/location">Location</a>
+        <a href="/productmovement">Navigation</a>
+        <a href="/report">Report</a>
+    </div>
+
+    <div class="container">
+        <h1>View Locations</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Product ID</th>
+                    <th>Product Name</th>
+                    <th>Location Name</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for location in locations %}
+                <tr>
+                    <td>{{ location.product_id }}</td>
+                    <td>{{ location.product_name }}</td>
+                    <td>{{ location.location_name }}</td>
+                    <td>
+                        <a href="{{ url_for('edit_location', id=location.location_id) }}">
+                            <button>Edit</button>
+                        </a>
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="4">No locations available.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

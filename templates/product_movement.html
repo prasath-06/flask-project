@@ -1,0 +1,104 @@
+<!-- filepath: c:\Users\DELL\OneDrive\Desktop\flaskwarehouse\templates\product_movement.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Movement</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="navbar">
+        <a href="/">Add Product</a>
+        <a href="/location">Location</a>
+        <a href="/productmovement">Navigation</a>
+        <a href="/report">Report</a>
+    </div>
+
+    <div class="container">
+        <h1>Product Movement</h1>
+        {% if message %}
+        <p style="color: red; text-align: center;">{{ message }}</p>
+        {% endif %}
+        <form method="POST" action="/productmovement">
+            <label>Choose Product:</label>
+            <select name="product_id" id="product_id" required onchange="updateFromLocations()">
+                <option value="" disabled selected>Select a Product</option>
+                {% for product in products %}
+                <option value="{{ product.product_id }}">{{ product.product_name }}</option>
+                {% endfor %}
+            </select>
+
+            <label>From Location:</label>
+            <select name="from_location" id="from_location" required onchange="updateAvailableQuantity()">
+                <option value="" disabled selected>Select From Location</option>
+                <!-- Options will be dynamically populated -->
+            </select>
+
+            <label>Available Quantity:</label>
+            <input type="text" id="available_quantity" readonly>
+
+            <label>To Location:</label>
+            <select name="to_location" required>
+                <option value="" disabled selected>Select a Location</option>
+                <option value="Coimbatore">Coimbatore</option>
+                <option value="Erode">Erode</option>
+                <option value="Tiruppur">Tiruppur</option>
+            </select>
+
+            <label>Quantity:</label>
+            <input type="number" name="quantity" min="1" required>
+
+            <button type="submit">Move Product</button>
+        </form>
+
+        <div class="container centered-container">
+            <a href="/view_navigation" class="centered-button">View Navigation</a>
+        </div>
+    </div>
+
+    <script>
+        function updateFromLocations() {
+            const productId = document.getElementById('product_id').value;
+            const fromLocationSelect = document.getElementById('from_location');
+            
+            // Clear existing options
+            fromLocationSelect.innerHTML = '<option value="" disabled selected>Select From Location</option>';
+            
+            // Fetch locations for the selected product
+            let hasLocations = false;
+            {% for location in locations %}
+            if (productId === "{{ location.product_id }}") {
+                const option = document.createElement('option');
+                option.value = "{{ location.location_name }}";
+                option.textContent = "{{ location.location_name }}";
+                fromLocationSelect.appendChild(option);
+                hasLocations = true;
+            }
+            {% endfor %}
+
+            // If no locations are available, display a message
+            if (!hasLocations) {
+                const option = document.createElement('option');
+                option.value = "";
+                option.textContent = "No locations available";
+                option.disabled = true;
+                fromLocationSelect.appendChild(option);
+            }
+        }
+
+        function updateAvailableQuantity() {
+            const productId = document.getElementById('product_id').value;
+            const fromLocation = document.getElementById('from_location').value;
+            const availableQuantityInput = document.getElementById('available_quantity');
+
+            // Fetch the available quantity for the selected product and location
+            {% for location in locations %}
+            if (productId === "{{ location.product_id }}" && fromLocation === "{{ location.location_name }}") {
+                availableQuantityInput.value = "{{ location.product_quantity }}";
+                return;
+            }
+            {% endfor %}
+            availableQuantityInput.value = ""; // Clear if no match
+        }
+    </script>
+</body>
+</html>

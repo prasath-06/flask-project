@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Location Management</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="navbar">
+        <a href="/">Add Product</a>
+        <a href="/location">Location</a>
+        <a href="/productmovement">Navigation</a>
+        <a href="/report">Report</a>
+    </div>
+
+    <div class="container">
+        <h1>Location Management</h1>
+        <!-- filepath: c:\Users\DELL\OneDrive\Desktop\flaskwarehouse\templates\location.html -->
+    <form method="POST" action="/add_location">
+        <label>Select Product:</label>
+        <select name="product_id" required>
+            <option value="" disabled selected>Select a Product</option>
+            {% for product in products %}
+            <option value="{{ product.id }}">{{ product.product_name }}</option>
+            {% endfor %}
+        </select>
+
+        <label>Select Location:</label>
+        <select name="location_name" required>
+            <option value="" disabled selected>Select a Location</option>
+            <option value="Coimbatore">Coimbatore</option>
+            <option value="Erode">Erode</option>
+            <option value="Tiruppur">Tiruppur</option>
+        </select>
+
+        <button type="submit">Assign Location</button>
+    </form>
+    </div>
+
+    <div class="container" style="text-align: center; margin-top: 20px;">
+        <a href="/view_locations" class="centered-button">View Locations</a>
+    </div>
+</body>
+</html>

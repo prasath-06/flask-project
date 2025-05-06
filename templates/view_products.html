@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Products</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1 style="text-align: center;">Product List</h1>
+
+    <table border="1" style="width: 80%; margin: auto; text-align: center; border-collapse: collapse;">
+        <tr style="background-color: #ddd;">
+            <th>Product ID</th>
+            <th>Product Name</th>
+            <th>Quantity</th>
+            <th>Actions</th>
+        </tr>
+        {% for product in products %}
+        <tr>
+            <td>{{ product.product_id }}</td>
+            <td>{{ product.product_name }}</td>
+            <td>{{ product.product_quantity }}</td>
+            <td>
+                <a href="{{ url_for('product1', edit_id=product.id) }}">Edit</a>
+            </td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="4">No products available.</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <a href="{{ url_for('product1') }}">Back</a>
+</body>
+</html>

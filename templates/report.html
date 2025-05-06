@@ -1,0 +1,54 @@
+<!-- filepath: c:\Users\DELL\OneDrive\Desktop\flaskwarehouse\templates\report.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Report</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="navbar">
+        <a href="/">Add Product</a>
+        <a href="/location">Location</a>
+        <a href="/productmovement">Navigation</a>
+        <a href="/report">Report</a>
+    </div>
+
+    <div class="container">
+        <h1>Warehouse Report</h1>
+        <form method="POST" action="/report">
+            <label>Select Location:</label>
+            <select name="location_name" required>
+                <option value="" disabled selected>Select a Location</option>
+                <option value="Coimbatore">Coimbatore</option>
+                <option value="Erode">Erode</option>
+                <option value="Tiruppur">Tiruppur</option>
+            </select>
+            <button type="submit">View Report</button>
+        </form>
+
+        {% if products %}
+        <div class="container">
+            <h2>Products in {{ selected_location }}</h2>
+            <table>
+                <tr>
+                    <th>Product ID</th>
+                    <th>Product Name</th>
+                    <th>Product Quantity</th>
+                </tr>
+                {% for product in products %}
+                <tr>
+                    <td>{{ product.product_id }}</td>
+                    <td>{{ product.product_name }}</td>
+                    <td>{{ product.product_quantity }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        {% elif selected_location %}
+        <div class="container">
+            <p style="text-align: center; color: red;">No products found in the selected location.</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!-- filepath: c:\Users\DELL\OneDrive\Desktop\flaskwarehouse\templates\edit_location.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Location</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="navbar">
+        <a href="/">Add Product</a>
+        <a href="/location">Location</a>
+        <a href="/productmovement">Navigation</a>
+        <a href="/report">Report</a>
+    </div>
+
+    <div class="container">
+        <h1>Edit Location</h1>
+        <form method="POST">
+            <label>Product ID:</label>
+            <input type="text" name="product_id" value="{{ location.product_id }}" readonly>
+
+            <label>Location Name:</label>
+            <input type="text" name="location_name" value="{{ location.location_name }}" required>
+
+            <button type="submit">Update Location</button>
+        </form>
+
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="{{ url_for('view_locations') }}" class="centered-button">Back</a>
+        </div>
+    </div>
+</body>
+</html>

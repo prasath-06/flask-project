@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Product</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    
+    <div class="navbar">
+        <a href="/">Add Product</a>
+        <a href="/location">Location</a>
+        <a href="/productmovement">Navigation</a>
+        <a href="/report">Report</a>
+    </div>
+
+    <div class="container">
+        <h1>Add a Product</h1>
+
+        {% if message %}
+        <p style="color: red; text-align: center;">{{ message }}</p>
+        {% endif %}
+
+        <form method="POST" action="/add_or_update_product">
+            <input type="hidden" name="id" value="{{ product.id if product else '' }}"> <!-- Hidden field for product ID -->
+
+            <label>Product ID:</label>
+            <input type="text" name="product_id" value="{{ product.product_id if product else '' }}" required>
+
+            <label>Product Name:</label>
+            <input type="text" name="product_name" value="{{ product.product_name if product else '' }}" required>
+
+            <label>Product Quantity:</label>
+            <input type="text" name="product_quantity" value="{{ product.product_quantity if product else '' }}" required>
+
+            <button type="submit">{{ 'Update Product' if product else 'Add Product' }}</button>
+        </form>
+    </div>
+
+    <h2 style="text-align: center; margin-top: 30px;">View Products</h2>
+
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="{{ url_for('view_products') }}" class="centered-button">
+            Product List
+        </a>
+    </div>
+</body>
+</html>
